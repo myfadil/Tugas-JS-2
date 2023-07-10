@@ -16,5 +16,4 @@ const callback = names => {
   console.log(names);
 }
 
-// Contoh penggunaan
 searchName("an", 3, callback);
