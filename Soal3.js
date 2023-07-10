@@ -1,10 +1,19 @@
 const SeleksiNilai = (nilaiAwal, nilaiAkhir, dataArray) => {
+    if (typeof nilaiAwal !== 'number' || typeof nilaiAkhir !== 'number') {
+        return "Nilai awal dan nilai akhir harus berupa angka";
+    }
+    
     if (nilaiAwal >= nilaiAkhir) {
         return "Nilai akhir harus lebih besar dari nilai awal";
     }
 
     if (dataArray.length <= 5) {
         return "Jumlah angka dalam dataArray harus lebih dari 5";
+    }
+
+    const isAllNumbers = dataArray.every((nilai) => typeof nilai === 'number');
+    if (!isAllNumbers) {
+        return "Semua elemen dataArray harus berupa angka";
     }
 
     const hasilPencarian = dataArray.filter((nilai) => nilai > nilaiAwal && nilai < nilaiAkhir);
